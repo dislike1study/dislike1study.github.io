@@ -1,244 +1,179 @@
-<!doctype html>
-<html lang="zn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>jyc的个人博客</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="jyc的个人博客"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="jyc的个人博客"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="宇"><meta property="og:url" content="https://removeif.github.io/"><meta property="og:site_name" content="宇"><meta property="og:locale" content="zn"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/avatar.png"><meta property="article:author" content="removeif"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/avatar.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com"},"headline":"jyc的个人博客","image":["http://example.com/img/og_image.png"],"author":{"@type":"Person","name":"jyc"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="icon" href="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/6.0.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdnjs.loli.net/ajax/libs/pace/1.2.4/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jyc的个人博客</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="/css/style.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="jyc的个人博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="jyc的个人博客">
+<meta property="og:locale">
+<meta property="article:author" content="jyc">
+<meta name="twitter:card" content="summary">
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+  <header class="site-header">
+  <div class="header-inner">
+    <a class="site-title" href="/">jyc的个人博客</a>
+    <nav class="site-nav" id="site-nav">
+      
+        <a href="/" class="nav-link">Home</a>
+      
+        <a href="/archives" class="nav-link">Archives</a>
+      
+        <a href="/tags" class="nav-link">Tags</a>
+      
+        <a href="/categories" class="nav-link">Categories</a>
+      
+    </nav>
+    <div class="header-actions">
+      
+      <button id="search-toggle" class="icon-btn" aria-label="Search" title="Ctrl+K">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+      
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+  <div id="search-overlay" class="search-overlay" style="display:none;">
+  <div class="search-modal">
+    <div class="search-header">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="search-input" placeholder="搜索文章...">
+      <button id="search-close" class="icon-btn" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+</div>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
-      }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/logo.png" alt="jyc的个人博客" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/media">影音</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/friend">友链</a><a class="navbar-item" href="/self-talking">碎碎念</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a><a class="navbar-item" href="/categories">Categories</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Suche" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card widget">
-            <div class="card-content">
-                <h3 class="menu-label">Hot Recommend</h3><span id="index_hot_div">Loading...Wait a Minute!</span>
-            </div>
-        </div><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2026-03-23  <a class="commentCountImg" href="/2026/03/23/%E4%BA%8C%E5%88%86/#comment-container"><span class="display-none-class">605dbc1fad2bda1b6582986c752c7e18</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="605dbc1fad2bda1b6582986c752c7e18">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>11 m  <i class="fas fa-pencil-alt"> </i>1.7 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/23/%E4%BA%8C%E5%88%86/">算法篇之二分查找</a></h1><div class="content"><h1 id="算法篇之二分查找"><a href="#算法篇之二分查找" class="headerlink" title="算法篇之二分查找"></a>算法篇之二分查找</h1><h2 id="二分查找的背景与思路"><a href="#二分查找的背景与思路" class="headerlink" title="二分查找的背景与思路"></a>二分查找的背景与思路</h2><p>二分查找是一种在<strong>有序</strong>（或具有某种<strong>单调性质</strong>）的数据中高效定位目标的算法。</p>
-<p>核心思想非常简单：每次取区间的中点，判断答案在中点的左侧还是右侧，从而将搜索范围缩小一半。因此，对于长度为 n 的区间，二分查找只需要 O(log n) 次操作即可找到目标。</p>
-<p>二分的本质并不局限于”在有序数组中查找某个数”。更一般地说，<strong>只要一个性质将区间分成了两段——左半段不满足、右半段满足（或反过来），我们就可以用二分查找找到这个分界点。</strong></p>
-<p>举个例子：在一个升序数组中查找 $\geq x$ 的第一个位置，数组可以被划分为两段：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[ 不满足(&lt; x) | 满足(&gt;= x) ]</span><br><span class="line">                ^</span><br><span class="line">              分界点（我们要找的答案）</span><br></pre></td></tr></table></figure>
+  <div class="container">
+    <main class="content">
+      <div class="post-list">
+  
+    <article class="post-card post-list-item">
+  <header class="post-header">
+    
+      <h2 class="post-title"><a href="/2026/03/23/%E4%BA%8C%E5%88%86/">算法篇之二分查找</a></h2>
+    
+    <div class="post-meta">
+      <time datetime="2026-03-23">2026-03-23</time>
+      
+    </div>
+  </header>
 
-<p>二分查找做的事情，就是不断缩小范围，最终精确定位到这个分界点。</p>
-<hr>
-<h2 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h2><p>整数二分十分易错，如果边界条件没有找对，就容易陷入死循环导致超时。</p>
-<p>所以，我认为有必要记住如下两个模板（其实记住一个，另一个也记得很快）方便我们做题。</p>
-<h3 id="模板一：查找左边界（r-mid）"><a href="#模板一：查找左边界（r-mid）" class="headerlink" title="模板一：查找左边界（r &#x3D; mid）"></a>模板一：查找左边界（r &#x3D; mid）</h3><p>当 <code>check(mid)</code> 为 <code>true</code> 时，说明答案在 <code>mid</code> 或 <code>mid</code> 的左边，所以令 <code>r = mid</code>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = L; <span class="comment">// L 为搜索区间的右端点</span></span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>; <span class="comment">// &gt;&gt; 1 是右移一位，等价于除以 2（向下取整）</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid))</span><br><span class="line">            r = mid;       <span class="comment">// 答案在 [l, mid]，缩小右边界</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid + <span class="number">1</span>;   <span class="comment">// 答案在 [mid+1, r]，缩小左边界</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环结束时 l == r，即为答案</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <div class="post-content">
+    
+      算法篇之二分查找二分查找的背景与思路二分查找是一种在有序（或具有某种单调性质）的数据中高效定位目标的算法。
+核心思想非常简单：每次取区间的中点，判断答案在中点的左侧还是右侧，从而将搜索范围缩小一半。因此，对于长度为 n 的区间，二分查找只需要 O(log n) 次操作即可找到目标。
+二分的本质并不局限于”在有序数组中查找某个数”。更一般地说，只要一个性质将区间分成了两段——左半段不满足、右半...
+      <a class="read-more" href="/2026/03/23/%E4%BA%8C%E5%88%86/">阅读全文 &rarr;</a>
+    
+  </div>
 
-<p><strong>要点：</strong> 当 <code>r = mid</code> 时，<code>mid</code> 的计算不需要 <code>+1</code>，即 <code>mid = (l + r) &gt;&gt; 1</code>。因为向下取整保证 <code>mid &lt; r</code>（当 <code>l &lt; r</code> 时），所以 <code>r = mid</code> 一定能让区间缩小，不会死循环。</p>
-<p><strong>典型场景：</strong> 找满足某个条件的<strong>最小值</strong>（第一个满足条件的位置）。</p>
-<hr>
-<h3 id="模板二：查找右边界（l-mid）"><a href="#模板二：查找右边界（l-mid）" class="headerlink" title="模板二：查找右边界（l &#x3D; mid）"></a>模板二：查找右边界（l &#x3D; mid）</h3><p>当 <code>check(mid)</code> 为 <code>true</code> 时，说明答案在 <code>mid</code> 或 <code>mid</code> 的右边，所以令 <code>l = mid</code>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = L;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">        <span class="type">int</span> mid = (l + r + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>; <span class="comment">// 注意这里要 +1，向上取整</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid))</span><br><span class="line">            l = mid;       <span class="comment">// 答案在 [mid, r]，缩小左边界</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            r = mid - <span class="number">1</span>;   <span class="comment">// 答案在 [l, mid-1]，缩小右边界</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 循环结束时 l == r，即为答案</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
 
-<p><strong>要点：</strong> 当 <code>l = mid</code> 时，<code>mid</code> 的计算必须 <code>+1</code>（向上取整），即 <code>mid = (l + r + 1) &gt;&gt; 1</code>。如果不加 <code>1</code>，当 <code>l + 1 == r</code> 时，<code>mid</code> 会等于 <code>l</code>，导致 <code>l = mid = l</code>，区间不缩小，陷入<strong>死循环</strong>。</p>
-<p><strong>典型场景：</strong> 找满足某个条件的<strong>最大值</strong>（最后一个满足条件的位置）。</p>
-<hr>
-<h3 id="如何选择模板？"><a href="#如何选择模板？" class="headerlink" title="如何选择模板？"></a>如何选择模板？</h3><p>一句话总结：<strong>看 <code>check(mid)</code> 成立时更新的是 <code>l</code> 还是 <code>r</code></strong>。</p>
-<table>
-<thead>
-<tr>
-<th align="center">check(mid) 成立时</th>
-<th align="center">更新方式</th>
-<th align="center">mid 计算</th>
-<th align="center">适用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>r = mid</code></td>
-<td align="center">不加 1</td>
-<td align="center"><code>(l + r) &gt;&gt; 1</code></td>
-<td align="center">找满足条件的<strong>最小</strong>位置</td>
-</tr>
-<tr>
-<td align="center"><code>l = mid</code></td>
-<td align="center">加 1</td>
-<td align="center"><code>(l + r + 1) &gt;&gt; 1</code></td>
-<td align="center">找满足条件的<strong>最大</strong>位置</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>口诀：<strong><code>l = mid</code> 要加一，<code>r = mid</code> 不加一。</strong></p>
-</blockquote>
-<hr>
-<h3 id="例题：数的范围（AcWing-789）"><a href="#例题：数的范围（AcWing-789）" class="headerlink" title="例题：数的范围（AcWing 789）"></a>例题：数的范围（AcWing 789）</h3><p>给定一个升序数组和若干个查询，每次查询一个数 $k$，输出它在数组中出现的起始位置和终止位置（若不存在输出 <code>-1 -1</code>）。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="type">int</span> n, q, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;q);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (q--) &#123;</span><br><span class="line">        <span class="type">int</span> k;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;k);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查找起始位置：第一个 &gt;= k 的位置（模板一）</span></span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (a[mid] &gt;= k) r = mid;</span><br><span class="line">            <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a[l] != k) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;-1 -1\n&quot;</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> left = l;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 查找终止位置：最后一个 &lt;= k 的位置（模板二）</span></span><br><span class="line">        l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = (l + r + <span class="number">1</span>) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (a[mid] &lt;= k) l = mid;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, left, l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+</article>
 
-<p>分析：</p>
-<ul>
-<li><strong>找起始位置</strong>用模板一：我们希望找到第一个 <code>a[mid] &gt;= k</code> 的位置，当条件成立时 <code>r = mid</code>，不断往左逼近。</li>
-<li><strong>找终止位置</strong>用模板二：我们希望找到最后一个 <code>a[mid] &lt;= k</code> 的位置，当条件成立时 <code>l = mid</code>，不断往右逼近。</li>
-</ul>
-<hr>
-<h2 id="实数二分"><a href="#实数二分" class="headerlink" title="实数二分"></a>实数二分</h2><p>相比整数二分，实数二分<strong>不存在边界问题</strong>，因为实数域是连续的，不需要考虑 <code>+1</code> 或 <code>-1</code>，也不会死循环。</p>
-<h3 id="基本模板"><a href="#基本模板" class="headerlink" title="基本模板"></a>基本模板</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> l = 左端点, r = 右端点;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; <span class="number">1e-8</span>) &#123; <span class="comment">// 精度：一般比题目要求多两位</span></span><br><span class="line">        <span class="type">double</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid))</span><br><span class="line">            r = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.6f\n&quot;</span>, l); <span class="comment">// 输出答案</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
+    <article class="post-card post-list-item">
+  <header class="post-header">
+    
+      <h2 class="post-title"><a href="/2026/03/06/hello-world/">Hello World</a></h2>
+    
+    <div class="post-meta">
+      <time datetime="2026-03-06">2026-03-06</time>
+      
+    </div>
+  </header>
 
-<p><strong>关于精度：</strong> 循环终止条件 <code>r - l &gt; eps</code>，其中 <code>eps</code> 一般取比要求精度小两个数量级。例如题目要求保留 6 位小数（精度 $10^{-6}$），则取 <code>eps = 1e-8</code>。</p>
-<p>也可以用<strong>固定迭代次数</strong>的写法代替精度判断，避免精度陷阱：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123; <span class="comment">// 迭代 100 次，精度足够</span></span><br><span class="line">    <span class="type">double</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">check</span>(mid))</span><br><span class="line">        r = mid;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        l = mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <div class="post-content">
+    
+      Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Qu...
+      <a class="read-more" href="/2026/03/06/hello-world/">阅读全文 &rarr;</a>
+    
+  </div>
 
-<p>迭代 100 次，区间会缩小为原来的 $\frac{1}{2^{100}} \approx 10^{-30}$，精度绰绰有余。</p>
-<hr>
-<h3 id="例题：求数的三次方根（AcWing-790）"><a href="#例题：求数的三次方根（AcWing-790）" class="headerlink" title="例题：求数的三次方根（AcWing 790）"></a>例题：求数的三次方根（AcWing 790）</h3><p>给定一个浮点数 $n$，求它的三次方根，结果保留 6 位小数。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">double</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>, &amp;n);</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> l = <span class="number">-10000</span>, r = <span class="number">10000</span>;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt; <span class="number">1e-8</span>) &#123;</span><br><span class="line">        <span class="type">double</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (mid * mid * mid &gt;= n)</span><br><span class="line">            r = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.6f\n&quot;</span>, l);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
 
-<p>分析：</p>
-<ul>
-<li>三次函数 $f(x) &#x3D; x^3$ 是单调递增的，满足二分的条件。</li>
-<li>当 <code>mid^3 &gt;= n</code> 时，说明 <code>mid</code> 偏大或刚好，令 <code>r = mid</code>。</li>
-<li>当 <code>mid^3 &lt; n</code> 时，说明 <code>mid</code> 偏小，令 <code>l = mid</code>。</li>
-<li>注意 $n$ 可能为负数，所以搜索范围取 $[-10000, 10000]$（根据题目数据范围确定）。</li>
-</ul>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">整数二分</th>
-<th align="center">实数二分</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">区间更新</td>
-<td align="center"><code>l = mid + 1</code> 或 <code>r = mid - 1</code></td>
-<td align="center"><code>l = mid</code> 或 <code>r = mid</code></td>
-</tr>
-<tr>
-<td align="center">终止条件</td>
-<td align="center"><code>l &lt; r</code>（最终 <code>l == r</code>）</td>
-<td align="center"><code>r - l &gt; eps</code> 或固定迭代次数</td>
-</tr>
-<tr>
-<td align="center">难点</td>
-<td align="center">边界 <code>+1</code> 问题，容易死循环</td>
-<td align="center">精度控制</td>
-</tr>
-<tr>
-<td align="center">mid 计算</td>
-<td align="center"><code>r = mid</code> 时不加 1；<code>l = mid</code> 时加 1</td>
-<td align="center">直接 <code>(l + r) / 2</code></td>
-</tr>
-<tr>
-<td align="center">时间复杂度</td>
-<td align="center">$O(\log n)$</td>
-<td align="center">$O(\log \frac{R-L}{\varepsilon})$</td>
-</tr>
-</tbody></table>
-<p>牢记口诀：<strong><code>l = mid</code> 要加一，<code>r = mid</code> 不加一；实数二分没烦恼，精度多开两位就好。</strong></p>
-</div><div class="index-category-tag">  <hr></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2026-03-06  <a class="commentCountImg" href="/2026/03/06/hello-world/#comment-container"><span class="display-none-class">212d5e6f12a4c2d724f97255199c93a3</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="212d5e6f12a4c2d724f97255199c93a3">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>a minute  <i class="fas fa-pencil-alt"> </i>0.1 k</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2026/03/06/hello-world/">Hello World</a></h1><div class="content"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+  
+</article>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+  
+</div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-</div><div class="index-category-tag">  <hr></div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/avatar.png" alt="宇"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">宇</p><p class="is-size-6 is-block">尚未执佩剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>阿尔及利亚</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Seiten</p><a href="/archives/"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Kategorien</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags/"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Folgen</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/removeif"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/removeif"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:removeif@163.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Next" href="https://removeif.github.io/remove.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
-                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
-                                if(data){
-                                    $('#hitokoto').html("");
-                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
-                                    "<p>"+"From《"+data.from+"》</p><p>Provider-"+data.creator+"</p>");
-                                }});}
-                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget"><div class="card-content"><h3 class="menu-label">Latest Comment</h3><span class="body_hot_comment">Loading...Wait a Minute!</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">Letzte Einträge</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-23T02:01:18.393Z">2026-03-23</time></p><p class="title"><a href="/2026/03/23/%E4%BA%8C%E5%88%86/">算法篇之二分查找</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2026-03-06T09:53:18.765Z">2026-03-06</time></p><p class="title"><a href="/2026/03/06/hello-world/">Hello World</a></p></div></article></div></div><!--!--><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">Archive</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2026/03/"><span class="level-start"><span class="level-item">March 2026</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Abonnieren Sie Updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Abonnieren"></div></div></form></div></div></div><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/logo.png" alt="jyc的个人博客" height="28"></a><p class="size-small"><span>&copy; 2026 jyc</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© <a href="http://www.beian.miit.gov.cn/" target="_blank">川ICP备88888888号-8（测试）</a><br></span><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
-            var n = new Date(time);
-            now.setTime(now.getTime() + 250),
-                days = (now - n) / 1e3 / 60 / 60 / 24,
-                dnum = Math.floor(days),
-                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
-                hnum = Math.floor(hours),
-            1 == String(hnum).length && (hnum = "0" + hnum),
-                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
-                mnum = Math.floor(minutes),
-            1 == String(mnum).length && (mnum = "0" + mnum),
-                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
-                snum = Math.round(seconds),
-            1 == String(snum).length && (snum = "0" + snum),
-                document.getElementById("statistic-times").innerHTML = "❤️Site from <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> has existed <strong>" + dnum + "</strong> d <strong>" + hnum + "</strong> h <strong>" + mnum + "</strong> m <strong>" + snum + "</strong> s！❤️";
-        }var now = new Date();setInterval("createTime('2018/11/11 00:00:00')", 250,"");</script><br></span><div class="size-small"><span>❤️Thx <strong><span id="busuanzi_value_site_uv">99+</span></strong> users <strong><span id="busuanzi_value_site_pv">99+</span></strong> visited！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zn");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Zurück nach oben" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.10.0/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
-            if (typeof $.fn.lightGallery === 'function') {
-                $('.article').lightGallery({ selector: '.gallery-item' });
-            }
-            if (typeof $.fn.justifiedGallery === 'function') {
-                if ($('.justified-gallery > p > .gallery-item').length) {
-                    $('.justified-gallery > p > .gallery-item').unwrap();
-                }
-                $('.justified-gallery').justifiedGallery();
-            }
-        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','removeif','blog_comment',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Tippen Sie etwas..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script data-pjax src="/js/insight.js" defer></script><script data-pjax>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"Tippen Sie etwas...","untitled":"(Ohne Titel)","posts":"Seiten","pages":"Pages","categories":"Kategorien","tags":"Tags"});
-        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
-            elements: "a",//代表点击链接就更新
-            selectors: [  //代表要更新的节点
-                ".section",
-                "title"
-            ],
-            cache: true,
-            cacheBust:false
-        })
+    </main>
+    <aside class="sidebar">
+  
 
-        function loadBusuanzi(){
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
-        }
+  
+  <div class="sidebar-section">
+    <h3 class="sidebar-title">站点信息</h3>
+    <ul class="site-info-list">
+      <li><span>文章</span><span>2</span></li>
+      <li><span>标签</span><span>0</span></li>
+      <li><span>分类</span><span>0</span></li>
+    </ul>
+  </div>
+  
 
-        function loadMathJax() { //加载mathjax
-            $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
-                MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] } });
-                var math = document.getElementsByClassName("entry-content")[0];
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
-            });
-        };
+  
+</aside>
 
-        // 开始 PJAX 执行的函数
-        document.addEventListener('pjax:send', function () {
-        });
-        
-        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
-        document.addEventListener('pjax:complete', function () {
-            $(".section").css({opacity:1});
-            if(true){
-                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','removeif','blog_comment',false);});
-            }
-            if(false){
-                loadMathJax();
-            }
-            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
-            loadBackTop();
-            loadBusuanzi();
-            if(typeof loadBanner == 'function'){
-                loadBanner();
-            }
-        });</script></body></html>
+  </div>
+  <footer class="site-footer">
+  <p>&copy; 2025 - 2026 jyc</p>
+</footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

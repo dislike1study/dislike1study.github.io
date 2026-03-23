@@ -1,173 +1,214 @@
-/* eslint-disable node/no-unsupported-features/node-builtins */
-function loadMainJs($, moment, ClipboardJS, config) {
-    $('.article img:not(".not-gallery-item")').each(function () {
-        // wrap images with link and add caption if possible
-        if ($(this).parent('a').length === 0) {
-            $(this).wrap('<a class="gallery-item" href="' + $(this).attr('src') + '"></a>');
-            if (this.alt) {
-                $(this).after('<p class="has-text-centered is-size-6 caption">' + this.alt + '</p>');
-            }
+/* ========================================
+   Clean Theme - Main JavaScript
+   Dark mode, TOC tracking, Search, Mobile menu
+   ======================================== */
+
+(function () {
+  'use strict';
+
+  // ---- Dark Mode Toggle ----
+  var themeToggle = document.getElementById('theme-toggle');
+
+  function getTheme() {
+    return localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }
+
+  function setTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  // ---- TOC Active Tracking ----
+  (function () {
+    var tocLinks = document.querySelectorAll('.toc a');
+    if (!tocLinks.length) return;
+
+    var headings = [];
+    for (var i = 0; i < tocLinks.length; i++) {
+      var href = tocLinks[i].getAttribute('href');
+      if (!href) continue;
+      var id = decodeURIComponent(href.slice(1));
+      var el = document.getElementById(id);
+      if (el) headings.push({ el: el, link: tocLinks[i] });
+    }
+
+    if (!headings.length) return;
+
+    function onScroll() {
+      var scrollTop = window.scrollY + 100;
+      var active = headings[0];
+      for (var i = 0; i < headings.length; i++) {
+        if (headings[i].el.offsetTop <= scrollTop) {
+          active = headings[i];
         }
+      }
+      for (var j = 0; j < tocLinks.length; j++) {
+        tocLinks[j].classList.remove('active');
+      }
+      if (active) active.link.classList.add('active');
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // ---- Client-Side Search ----
+  (function () {
+    var overlay = document.getElementById('search-overlay');
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var openBtn = document.getElementById('search-toggle');
+    var closeBtn = document.getElementById('search-close');
+
+    if (!overlay || !input) return;
+
+    var searchData = null;
+
+    function loadSearchData(cb) {
+      if (searchData) return cb(searchData);
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/search.xml', true);
+      xhr.onload = function () {
+        if (xhr.status !== 200) return;
+        var xml = xhr.responseXML;
+        if (!xml) return;
+        var entries = xml.querySelectorAll('entry');
+        searchData = [];
+        for (var i = 0; i < entries.length; i++) {
+          var titleEl = entries[i].querySelector('title');
+          var urlEl = entries[i].querySelector('url');
+          var contentEl = entries[i].querySelector('content');
+          searchData.push({
+            title: titleEl ? titleEl.textContent : '',
+            url: urlEl ? urlEl.textContent.trim() : '',
+            content: contentEl ? contentEl.textContent : ''
+          });
+        }
+        cb(searchData);
+      };
+      xhr.send();
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function search(keyword) {
+      if (!keyword.trim()) {
+        results.innerHTML = '';
+        return;
+      }
+      loadSearchData(function (data) {
+        var kw = keyword.toLowerCase();
+        var kwEscaped = escapeRegExp(kw);
+        var re = new RegExp('(' + kwEscaped + ')', 'gi');
+
+        var matches = [];
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].title.toLowerCase().indexOf(kw) !== -1 ||
+              data[i].content.toLowerCase().indexOf(kw) !== -1) {
+            matches.push(data[i]);
+          }
+          if (matches.length >= 10) break;
+        }
+
+        if (!matches.length) {
+          results.innerHTML = '<div class="search-no-result">没有找到相关文章</div>';
+          return;
+        }
+
+        var html = '';
+        for (var j = 0; j < matches.length; j++) {
+          var item = matches[j];
+          var title = escapeHtml(item.title).replace(re, '<mark>$1</mark>');
+
+          var snippet = '';
+          var idx = item.content.toLowerCase().indexOf(kw);
+          if (idx !== -1) {
+            var start = Math.max(0, idx - 40);
+            var end = Math.min(item.content.length, idx + kw.length + 80);
+            snippet = (start > 0 ? '...' : '') +
+              escapeHtml(item.content.slice(start, end)).replace(re, '<mark>$1</mark>') +
+              (end < item.content.length ? '...' : '');
+          }
+
+          html += '<a class="search-result-item" href="' + item.url + '">' +
+            '<div class="search-result-title">' + title + '</div>' +
+            (snippet ? '<div class="search-result-snippet">' + snippet + '</div>' : '') +
+            '</a>';
+        }
+        results.innerHTML = html;
+      });
+    }
+
+    function openSearch() {
+      overlay.style.display = 'flex';
+      input.value = '';
+      results.innerHTML = '';
+      setTimeout(function () { input.focus(); }, 50);
+    }
+
+    function closeSearch() {
+      overlay.style.display = 'none';
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openSearch);
+    if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) closeSearch();
     });
 
-    if (typeof $.fn.lightGallery === 'function') {
-        $('.article').lightGallery({selector: '.gallery-item'});
-    }
-    if (typeof $.fn.justifiedGallery === 'function') {
-        if ($('.justified-gallery > p > .gallery-item').length) {
-            $('.justified-gallery > p > .gallery-item').unwrap();
-        }
-        // 调整gallery图片渲染尺寸
-        $('.justified-gallery').justifiedGallery({rowHeight: 230, margins: 4});
-    }
-
-    if (typeof moment === 'function') {
-        $('.article-meta time').each(function () {
-            $(this).text(moment($(this).attr('datetime')).fromNow());
-        });
-    }
-
-    $('.article > .content > table').each(function () {
-        if ($(this).width() > $(this).parent().width()) {
-            $(this).wrap('<div class="table-overflow"></div>');
-        }
-    });
-
-    function adjustNavbar() {
-        const navbarWidth = $('.navbar-main .navbar-start').outerWidth() + $('.navbar-main .navbar-end').outerWidth();
-        if ($(document).outerWidth() < navbarWidth) {
-            $('.navbar-main .navbar-menu').addClass('justify-content-start');
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && overlay.style.display !== 'none') {
+        closeSearch();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        if (overlay.style.display === 'none' || overlay.style.display === '') {
+          openSearch();
         } else {
-            $('.navbar-main .navbar-menu').removeClass('justify-content-start');
+          closeSearch();
         }
-    }
-
-    adjustNavbar();
-    $(window).resize(adjustNavbar);
-
-    function toggleFold(codeBlock, isFolded) {
-        const $toggle = $(codeBlock).find('.fold i');
-        !isFolded ? $(codeBlock).removeClass('folded') : $(codeBlock).addClass('folded');
-        !isFolded ? $toggle.removeClass('fa-angle-right') : $toggle.removeClass('fa-angle-down');
-        !isFolded ? $toggle.addClass('fa-angle-down') : $toggle.addClass('fa-angle-right');
-    }
-
-    function createFoldButton(fold) {
-        return '<span class="fold">' + (fold === 'unfolded' ? '<i class="fas fa-angle-down"></i>' : '<i class="fas fa-angle-right"></i>') + '</span>';
-    }
-
-    $('figure.highlight table').wrap('<div class="highlight-body">');
-    if (typeof config !== 'undefined'
-        && typeof config.article !== 'undefined'
-        && typeof config.article.highlight !== 'undefined') {
-
-        $('figure.highlight').addClass('hljs');
-        $('figure.highlight .code .line span').each(function() {
-            const classes = $(this).attr('class').split(/\s+/);
-            for (const cls of classes) {
-                $(this).addClass('hljs-' + cls);
-                $(this).removeClass(cls);
-            }
-        });
-
-
-        const clipboard = config.article.highlight.clipboard;
-        const fold = config.article.highlight.fold.trim();
-
-        $('figure.highlight').each(function () {
-            if ($(this).find('figcaption').length) {
-                $(this).find('figcaption').addClass('level is-mobile');
-                $(this).find('figcaption').append('<div class="level-left">');
-                $(this).find('figcaption').append('<div class="level-right">');
-                $(this).find('figcaption div.level-left').append($(this).find('figcaption').find('span'));
-                $(this).find('figcaption div.level-right').append($(this).find('figcaption').find('a'));
-            } else {
-                if (clipboard || fold) {
-                    $(this).prepend('<figcaption class="level is-mobile"><div class="level-left"></div><div class="level-right"></div></figcaption>');
-                }
-            }
-        });
-
-        if (typeof ClipboardJS !== 'undefined' && clipboard) {
-            $('figure.highlight').each(function () {
-                const id = 'code-' + Date.now() + (Math.random() * 1000 | 0);
-                const button = '<a href="javascript:;" class="copy" title="Copy" data-clipboard-target="#' + id + ' .code"><i class="fas fa-copy"></i></a>';
-                $(this).attr('id', id);
-                $(this).find('figcaption div.level-right').append(button);
-            });
-            new ClipboardJS('.highlight .copy'); // eslint-disable-line no-new
-        }
-
-        if (fold) {
-            $('figure.highlight').each(function() {
-                $(this).addClass('foldable'); // add 'foldable' class as long as fold is enabled
-
-                if ($(this).find('figcaption').find('span').length > 0) {
-                    const span = $(this).find('figcaption').find('span');
-                    if (span[0].innerText.indexOf('>folded') > -1) {
-                        span[0].innerText = span[0].innerText.replace('>folded', '');
-                        $(this).find('figcaption div.level-left').prepend(createFoldButton('folded'));
-                        toggleFold(this, true);
-                        return;
-                    }
-                }
-                $(this).find('figcaption div.level-left').prepend(createFoldButton(fold));
-                toggleFold(this, fold === 'folded');
-            });
-
-            $('figure.highlight figcaption .level-left').click(function() {
-                const $code = $(this).closest('figure.highlight');
-                toggleFold($code.eq(0), !$code.hasClass('folded'));
-            });
-        }
-    }
-
-    const $toc = $('#toc');
-    if ($toc.length > 0) {
-        $toc.addClass('column-left is-sticky');
-        const $mask = $('<div>');
-        $mask.attr('id', 'toc-mask');
-
-        $('body').append($mask);
-
-        function toggleToc() { // eslint-disable-line no-inner-declarations
-            $toc.toggleClass('is-active');
-            $mask.toggleClass('is-active');
-        }
-
-        $toc.on('click', toggleToc);
-        $mask.on('click', toggleToc);
-        $('.navbar-main .catalogue').on('click', toggleToc);
-    }
-}
-
-function loadMathJax() { //加载mathjax
-    $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\\(', '\\)']] } });
-        var math = document.getElementsByClassName("entry-content")[0];
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+      }
     });
-}
 
-$(document).ready(function () {
-    loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
-    /* 添加背景色 */
-    var navbar = $(".is-fixed-top");
-    var navbar1 = $(".justify-content-start");
-    if (navbar.offset().top > 12) {
-        navbar.addClass("navbar-highlight");
-        navbar1.addClass("navbar-highlight");
-    } else {
-        navbar.removeClass("navbar-highlight");
-        navbar1.removeClass("navbar-highlight");
-    }
-    $(window).scroll(function () {
-        if (navbar.offset().top > 12) {
-            navbar.addClass("navbar-highlight");
-            navbar1.addClass("navbar-highlight");
-        } else {
-            navbar.removeClass("navbar-highlight");
-            navbar1.removeClass("navbar-highlight");
-        }
+    var debounceTimer;
+    input.addEventListener('input', function () {
+      clearTimeout(debounceTimer);
+      var val = this.value;
+      debounceTimer = setTimeout(function () { search(val); }, 200);
     });
-});
+  })();
+
+  // ---- Mobile Menu Toggle ----
+  (function () {
+    var menuBtn = document.getElementById('menu-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!menuBtn || !nav) return;
+
+    menuBtn.addEventListener('click', function () {
+      nav.classList.toggle('nav-open');
+    });
+
+    // Close menu when clicking a link
+    var links = nav.querySelectorAll('.nav-link');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function () {
+        nav.classList.remove('nav-open');
+      });
+    }
+  })();
+
+})();
